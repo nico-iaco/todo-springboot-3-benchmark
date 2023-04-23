@@ -1,0 +1,14 @@
+services:
+    food-details:
+        image: "ghcr.io/nico-iaco/todo-springboot-3-benchmark:latest"
+        container_name: todo-springboot-3-benchmark
+        ports:
+            - "11000:8080"
+        environment:
+            - TZ=Europe/Rome
+        healthcheck:
+            test: wget --no-verbose --tries=1 --spider http://localhost:${PORT}/actuator/health || exit 1
+            interval: 1m30s
+            timeout: 3s
+            retries: 5
+            start_period: 10s

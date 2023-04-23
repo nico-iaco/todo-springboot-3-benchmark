@@ -1,0 +1,29 @@
+config:
+    target: http://localhost:8080/todo
+    phases:
+        -   duration: 60
+            arrivalRate: 1
+        -   duration: 180
+            arrivalRate: 10
+scenarios:
+    -   flow:
+            -   post:
+                    url: "/"
+                    json:
+                        id: "92d50bd7-3f45-487f-9d2a-eb2108e3ab20"
+                        message: "Hello World"
+                        publishTime: "2021-02-01T12:00:00Z"
+            -   post:
+                    url: "/"
+                    json:
+                        id: "92d50bd7-3f45-487f-9d2a-eb2108e3ab20"
+                        message: "Hello World 2"
+                        publishTime: "2021-02-01T12:00:00Z"
+            -   post:
+                    url: "/"
+                    json:
+                        id: "92d50bd7-3f45-487f-9d2a-eb2108e3ab20"
+                        message: "Hello World 3"
+                        publishTime: "2021-02-01T12:00:00Z"
+            -   get:
+                    url: "/"
